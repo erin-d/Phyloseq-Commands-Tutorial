@@ -1,0 +1,70 @@
+---
+title: "Phyloseq Plot General Commands"
+author: "Erin Dahl"
+date: "2/4/2020"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+# R Markdown Document of Helpful Phyloseq Commands
+
+## Function plot_bar()
+
+The command __`plot_bar(phyloseqObject)`__ is used to plot summary graphics of differences in taxa abundance between samples using a phyloseq object.
+
+The only required argument in this function is a physeq object which contains an OTU table, metadata, and a taxonomy table.
+
+An example of this function:
+
+`plot_bar(phyloseqObject,fill='Phylum', title = ' Proportion of Contaminant ASVs Not in the Blank Control Sample')`
+
+_phyloseqObject_ is the name of the phyloseq object that will be plotted.
+
+_fill_ = indicates which sample variable to be used to fill coloring of bars  
+_title_ = title of the plot
+
+fill and title arguments must be specified with and "=" when used as parameters becuase they are not required arguments.
+
+## Filled Bars
+
+To have filled bars on the plot, specify the fill argument. This sample variable is generally from the taxonomy table within the phyloseq object.
+In the example, the fill selected was _Phylum_, however this could be changed to a different taxonomic rank such as _Kingdom_, _Genus_, etc. 
+
+`plot_bar(phyloseqObject,fill='Phylum', title = ' Proportion of Contaminant ASVs Not in the Blank Control Sample') + ylim(c(0,100))`
+
+The `ylim()` function is added for setting a y-axis limit. An x-axis `xlim()` is also avalible.
+
+![](C:/Users/dahleri/Documents/RMarkdownTraining/PhyloseqPlotGeneralCommands/GeneralCommandsPlot1.png)
+
+## Remove Black Lines in Fill
+
+To remove the black lines inside the filled plot use `+ geom_bar(stat="identity")`.
+
+`plot_bar(phyloseqObject,fill='Phylum', title = ' Proportion of Contaminant ASVs Not in the Blank Control Sample') + ylim(c(0,100))+ geom_bar(stat="identity")`
+
+![](C:/Users/dahleri/Documents/RMarkdownTraining/PhyloseqPlotGeneralCommands/GeneralCommandsPlot2.png)
+
+## Re-size or Remove Legend
+
+If the legend is disproportionate to the graph, following the `bar_plot()` function add `+ theme(legend.key.size = unit(leg_size, "cm"))` to scale the legend. Set the leg_size variable equal to 0.5 and adjust as needed.
+
+![](C:/Users/dahleri/Documents/RMarkdownTraining/PhyloseqPlotGeneralCommands/GeneralCommandsPlot3.png)
+
+To remove the legend use `+ theme(legend.position='none')` following the `plot_bar()` function. In this example, it makes the most sense to keep the legend.
+
+## Color Palette
+
+To change the color palette of the graph, include the RColorBrewer library. Find a [color palette](https://rdrr.io/cran/RColorBrewer/man/ColorBrewer.html) in this library to use. To change the color palette to blue for example, use `+ scale_fill_brewer(palette = "Blues")` after the `plot_bar()` function.
+
+![](C:/Users/dahleri/Documents/RMarkdownTraining/PhyloseqPlotGeneralCommands/GeneralCommandsPlot4.png)
+
+When changing the color palette, be aware that you may have more variables in the legend than in the amount of colors in the color palatte, In the case above, there were not enough unique colors in the palette to span each one of the Phylum in the legend.
+
+
+
+
+
