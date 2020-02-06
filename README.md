@@ -1,3 +1,3 @@
 # Phyloseq-Commands-Tutorial
 
-add working link to html file
+ https://erin-d.github.io/Phyloseq-Commands-Tutorial/
