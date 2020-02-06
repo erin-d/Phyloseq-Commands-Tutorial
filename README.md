@@ -1,3 +1,3 @@
 # Phyloseq-Commands-Tutorial
 
-https://erin-d.github.io/Phyloseq-Commands-Tutorial/Phyloseq-Plot-General-Commands.html
+add working link to html file
