@@ -37,6 +37,12 @@ To add a title to the graph, use the argument `title = ` to indicates the title 
 
 `title`  must be specified with and "=" when used as a parameters becuase it is not a required argument.
 
+### Center Title
+
+The default setting for plots is a left aligned title. In the example above the title is fairly long, and looks fine as is. 
+
+If the title were much shorter, it may be helpful to center it using `plot_bar(phyloseqObject, title = ' Proportion of Contaminant ASVs Not in the Blank Control Sample') + theme(plot.title = element_text(hjust = 0.5)`
+
 ## Filled Bars
 
 To have filled bars on the plot, specify the fill argument. This sample variable is generally from the taxonomy table within the phyloseq object.
